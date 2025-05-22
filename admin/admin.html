@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f6fa;
+      display: flex;
+      height: 100vh;
+      color: #333;
+    }
+
+    .sidebar {
+      width: 260px;
+      background-color: #2a3042;
+      display: flex;
+      flex-direction: column;
+      color: #a6b0cf;
+      position: relative;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-header h2 {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar-header h2 i {
+      color: #556ee6;
+      margin-right: 10px;
+      font-size: 24px;
+    }
+
+    .sidebar-menu {
+      padding: 20px 0;
+      flex: 1;
+    }
+
+    .menu-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0 25px;
+      margin: 15px 0 5px;
+      color: #6a7187;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin: 8px 0;
+    }
+
+    .sidebar li a {
+      text-decoration: none;
+      color: #a6b0cf;
+      padding: 12px 25px;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar li a i {
+      margin-right: 10px;
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .sidebar li a:hover {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .sidebar li a.active {
+      color: #fff;
+      background-color: rgba(85, 110, 230, 0.25);
+      border-left: 3px solid #556ee6;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f5f6fa;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #495057;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      background-color: #556ee6;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4458ca;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #556ee6;
+      border: 1px solid #556ee6;
+    }
+
+    .btn-outline:hover {
+      background-color: #556ee6;
+      color: white;
+    }
+
+    .dashboard-widgets {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .widget {
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+    }
+
+    .widget-header {
+      padding: 15px 20px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .widget-header h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #495057;
+      margin: 0;
+    }
+
+    .widget-header .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .widget-header .actions button {
+      background: none;
+      border: none;
+      color: #74788d;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .widget-content {
+      padding: 20px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .bottom-widgets {
+      display: flex;
+      gap: 20px;
+    }
+
+    .bottom-widgets .widget {
+      flex: 1;
+    }
+
+    .recommendation {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .recommendation:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .recommendation-icon {
+      width: 36px;
+      height: 36px;
+      background-color: #f8f9fc;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: #556ee6;
+    }
+
+    .recommendation-content {
+      flex: 1;
+    }
+
+    .recommendation-title {
+      font-weight: 500;
+      margin: 0 0 5px 0;
+      color: #495057;
+      font-size: 14px;
+    }
+
+    .recommendation-desc {
+      margin: 0;
+      color: #74788d;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .priority-high {
+      color: #f46a6a;
+    }
+
+    .priority-medium {
+      color: #f1b44c;
+    }
+
+    .priority-low {
+      color: #34c38f;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 500;
+      margin-left: 5px;
+    }
+
+    .badge-high {
+      background-color: rgba(244, 106, 106, 0.1);
+      color: #f46a6a;
+    }
+
+    .badge-medium {
+      background-color: rgba(241, 180, 76, 0.1);
+      color: #f1b44c;
+    }
+
+    .badge-low {
+      background-color: rgba(52, 195, 143, 0.1);
+      color: #34c38f;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2><i class="fas fa-chart-line"></i> Transit Admin</h2>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li><a href="admin.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="road.html"><i class="fas fa-road"></i> Road</a></li>
+        <li><a href="bus.html"><i class="fas fa-bus"></i> Bus</a></li>
+        <li><a href="map.html"><i class="fas fa-map-marked-alt"></i> Map</a></li>
+        <li><a href="database.php"><i class="fas fa-database"></i> Database</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Traffic Dashboard</h1>
+      <div class="header-actions">
+        <button class="btn btn-outline"><i class="fas fa-download"></i> Export</button>
+        <button class="btn"><i class="fas fa-sync-alt"></i> Update Data</button>
+      </div>
+    </div>
+
+    <div class="dashboard-widgets">
+      <div class="widget">
+        <div class="widget-header">
+          <h3>Traffic Heatmap</h3>
+          <div class="actions">
+            <button><i class="fas fa-expand-alt"></i></button>
+            <button><i class="fas fa-ellipsis-v"></i></button>
+          </div>
+        </div>
+        <div class="widget-content">
+          <div class="map-container">
+            <iframe src="map-embed.html" title="Interactive Map"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-widgets">
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Road Improvement Suggestions</h3>
+            <div class="actions">
+              <button><i class="fas fa-filter"></i></button>
+              <button><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+          </div>
+          <div class="widget-content">
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-road"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">Pristina City Center <span class="badge badge-high">High Priority</span></h4>
+                <p class="recommendation-desc">Severe congestion detected around Main Boulevard and Downtown area. Recommend road widening and traffic flow optimization at coordinates 42.6629, 21.1655.</p>
+              </div>
+            </div>
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-road"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">M9 Highway (Pristina - Peja) <span class="badge badge-high">High Priority</span></h4>
+                <p class="recommendation-desc">Consistent high traffic intensity along this route. Recommend adding additional lanes between coordinates 42.6629, 21.0655 and 42.6629, 20.6655.</p>
+              </div>
+            </div>
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-traffic-light"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">Prizren City Center <span class="badge badge-medium">Medium Priority</span></h4>
+                <p class="recommendation-desc">High traffic concentration at 42.2167, 20.7414. Recommend implementing smart traffic lights and one-way street system in historic center.</p>
+              </div>
+            </div>
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">R7 Highway Junction <span class="badge badge-medium">Medium Priority</span></h4>
+                <p class="recommendation-desc">Traffic bottleneck identified at 42.5700, 21.0800. Recommend redesigning interchange to improve flow between Pristina and Prizren.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="widget">
+          <div class="widget-header">
+            <h3>Bus Stop Recommendations</h3>
+            <div class="actions">
+              <button><i class="fas fa-filter"></i></button>
+              <button><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+          </div>
+          <div class="widget-content">
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-bus-alt"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">Pristina University Area <span class="badge badge-high">High Priority</span></h4>
+                <p class="recommendation-desc">High pedestrian and vehicle traffic at 42.6700, 21.1600. Recommend new bus hub with connections to multiple city routes to reduce private vehicle usage.</p>
+              </div>
+            </div>
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-bus-alt"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">Mitrovica Bridge Area <span class="badge badge-high">High Priority</span></h4>
+                <p class="recommendation-desc">Significant traffic at 42.8800, 20.8600. New bus stops on both sides of the bridge would improve cross-city mobility and reduce congestion.</p>
+              </div>
+            </div>
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-store"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">Peja Commercial District <span class="badge badge-medium">Medium Priority</span></h4>
+                <p class="recommendation-desc">Moderate to high traffic at 42.6670, 20.3080. Additional bus stops would serve the shopping area and reduce parking congestion.</p>
+              </div>
+            </div>
+            <div class="recommendation">
+              <div class="recommendation-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="recommendation-content">
+                <h4 class="recommendation-title">Gjakova Main Street <span class="badge badge-medium">Medium Priority</span></h4>
+                <p class="recommendation-desc">Traffic concentration at 42.3800, 20.4250. Recommend implementing dedicated bus lanes and new stops to encourage public transit use.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

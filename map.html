@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Kosova Transit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="css/map.css" />
+</head>
+<body>
+  <div id="map"></div>
+  <section id="search-container">
+    <input type="search" id="search" placeholder="Search city, street, place..." autocomplete="off" />
+    <div id="dropdown"></div>
+    <div id="transportModeSelector" style="display:none;">
+      <div class="transport-mode-icon selected" data-mode="car">
+        <span class="transport-icon">🚗</span>
+      </div>
+      <div class="transport-mode-icon" data-mode="bus">
+        <span class="transport-icon">🚌</span>
+      </div>
+      <div class="transport-mode-icon" data-mode="walk">
+        <span class="transport-icon">🚶‍♂️</span>
+      </div>
+    </div>
+  </section>
+  <button id="locate-btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61168.png" alt="Locate Me" />
+  </button>
+  <div class="route-options" id="routeOptions">
+    <h4>
+      <span class="route-icon-main">🛣️</span>
+      <span class="route-title-text">Select Route Type</span>
+    </h4>
+    <div class="route-type-list">
+      <div class="route-option car-only" data-type="shortest">
+        <span class="route-type-icon">📏</span>
+        <span class="route-type-label">Shortest Route</span>
+        <span class="route-type-desc">Minimize distance</span>
+      </div>
+      <div class="route-option car-only selected" data-type="fastest">
+        <span class="route-type-icon">⚡</span>
+        <span class="route-type-label">Fastest Route</span>
+        <span class="route-type-desc">Minimize time</span>
+      </div>
+      <div class="route-option car-only" data-type="scenic">
+        <span class="route-type-icon">🌳</span>
+        <span class="route-type-label">Scenic Route</span>
+        <span class="route-type-desc">Enjoy the view</span>
+      </div>
+      <div class="route-option bus-only" data-type="bus">
+        <span class="route-type-icon">🚌</span>
+        <span class="route-type-label">Bus</span>
+        <span class="route-type-desc">Bus route</span>
+      </div>
+      <div class="route-option walk-only" data-type="walk">
+        <span class="route-type-icon">🚶‍♂️</span>
+        <span class="route-type-label">Walk</span>
+        <span class="route-type-desc">Walking route</span>
+      </div>
+    </div>
+    <button class="start-route" id="startRouteBtn">Start Route</button>
+  </div>
+  <div id="directionBox">
+    <div id="directionTransport"></div>
+    <div id="directionIcon"></div>
+    <div id="directionDistance"></div>
+    <div id="directionInstruction"></div>
+    <div id="directionStats"></div>
+    <button id="endRouteBtn">End Route</button>
+  </div>
+  <div class="custom-attribution">
+    <img src="img/logo_tiny.png" alt="Kosova Transit Logo" />
+    Kosova Transit
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
