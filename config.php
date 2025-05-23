@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+function requireLogin() {
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: ../login.php');
+        exit();
+    }
+}
+
 // Database configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'kosovo_transit');

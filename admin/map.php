@@ -181,8 +181,10 @@ requireLogin();
 <body>
   <div class="sidebar">
     <div class="sidebar-header">
-      <h2><i class="fas fa-chart-line"></i> Transit Admin</h2>
-    </div>
+<h2>
+                <img src="../img/whitelogo.png" alt="JunctionX-ITP" style="height: 50px; margin-right: 10px; vertical-align: middle;">
+                TransitAdmin
+            </h2>    </div>
     <div class="sidebar-menu">
       <ul>
         <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
