@@ -17,12 +17,12 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
-/*
+
 // Fetch user preferences
 $stmt = $pdo->prepare("SELECT * FROM user_preferences WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $preferences = $stmt->fetch();
-*/
+
 
 // Fetch user destinations
 $stmt = $pdo->prepare("SELECT * FROM user_destinations WHERE user_id = ? ORDER BY type = 'home' DESC, type = 'work' DESC, type = 'course' DESC");
