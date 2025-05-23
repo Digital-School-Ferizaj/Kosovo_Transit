@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config.php';
 
 // If already logged in, redirect to admin page
 if (isLoggedIn()) {

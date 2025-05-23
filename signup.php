@@ -38,7 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             try {
                 $stmt->execute([$username, $email, $password_hash]);
-                $success = 'Registration successful! You can now login.';
+
+                // Redirect to login.php after successful registration
+                header('Location: login.php');
+                exit;
             } catch (PDOException $e) {
                 $error = 'Registration failed. Please try again.';
             }

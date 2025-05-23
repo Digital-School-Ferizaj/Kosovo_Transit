@@ -511,7 +511,7 @@
             <div class="container header-content">
                 <div class="logo-container">
                     <div class="logo-icon" style="background-color: #2563eb; border-radius: 10px;">
-                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo">
+                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo" style="height: 70px; width: 70px; margin: -15px;">
                     </div>
                     <h1 class="logo-text">Kosovo Transit</h1>
                 </div>
