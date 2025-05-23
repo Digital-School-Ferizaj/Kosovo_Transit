@@ -696,7 +696,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="fas fa-bus"></i>
                         <span>Buses</span>
                     </a>
-                    <a href="bardh.html" class="footer-nav-item map-center active">
+                    <a href="index.html" class="footer-nav-item map-center active">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Map</span>
                     </a>

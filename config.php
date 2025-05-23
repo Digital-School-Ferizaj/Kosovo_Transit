@@ -1,8 +1,8 @@
 <?php
 // Database configuration
-$host = 'localhost';           // Database host (often 'localhost')
-$db   = 'kosovo_transit';      // Your database name
-$user = 'root';        // Your database username
+$host = '95.217.112.34';           // Database host (often 'localhost')
+$db   = 'ferizajdigitalsc_kosovo_transit';      // Your database name
+$user = 'ferizajdigitalsc_kosovo_transit';        // Your database username
 $pass = '';    // Your database password
 $charset = 'utf8mb4';          // Character set
 
