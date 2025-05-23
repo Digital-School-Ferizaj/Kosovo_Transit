@@ -48,11 +48,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            overflow-y: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             padding: 2rem 1rem;
+            overflow: hidden;
         }
 
         /* Layout */
@@ -166,7 +168,7 @@
         /* Map Container */
         .map-container {
             width: 100%;
-            height: calc(100vh - 8rem); /* Account for header and footer */
+            height: 60vh;
             background: var(--background);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -269,6 +271,47 @@
             background: var(--primary);
             border-radius: 50%;
         }
+         .main-content {
+
+
+
+
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+
+
+
+            padding-top: 2.5rem;   /* Height of header */
+            padding-bottom: 10rem; /* Height of footer */
+            min-height: 0;
+            margin: 0;
+        }
+
+        .container.map-container {
+            flex: 1 1 auto;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+        }
+
+        .map-iframe {
+            flex: 1 1 auto;
+            width: 100%;
+
+
+            height: 100%;
+            border: 0;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            background: var(--background);
+            display: block;
+            min-height: 0;
+        }
     </style>
 </head>
 <body>
@@ -277,7 +320,7 @@
             <div class="container header-content">
                 <div class="logo-container">
                     <div class="logo-icon" style="background-color: #2563eb; border-radius: 10px;">
-                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo">
+                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo" style="height: 70px; width: 70px; margin: -15px;">
                     </div>
                     <h1 class="logo-text">Kosovo Transit</h1>
                 </div>
@@ -285,9 +328,7 @@
         </header>
 
         <main class="main-content">
-            <div class="container">
-                <iframe src="map.html" frameborder="0" width="100%" height="100%"></iframe>
-            </div>
+                <iframe src="map.html" class="map-iframe"></iframe>
         </main>
 
         <!-- Footer -->
@@ -302,7 +343,7 @@
                         <i class="fas fa-bus"></i>
                         <span>Buses</span>
                     </a>
-                    <a href="bardh.html" class="footer-nav-item map-center active">
+                    <a href="index.html" class="footer-nav-item map-center active">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Map</span>
                     </a>
