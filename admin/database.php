@@ -1,5 +1,6 @@
 <?php
-require_once '../config.php';
+require_once 'config.php';
+requireLogin();
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -396,6 +397,29 @@ $stations = $pdo->query("SELECT * FROM bus_stations ORDER BY city, name")->fetch
             border-color: #556ee6;
             outline: none;
         }
+
+        .logout-btn {
+            color: #f46a6a;
+            text-decoration: none;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .logout-btn i {
+            margin-right: 10px;
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .logout-btn:hover {
+            color: #fff;
+            background-color: rgba(244, 106, 106, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -405,13 +429,16 @@ $stations = $pdo->query("SELECT * FROM bus_stations ORDER BY city, name")->fetch
         </div>
         <div class="sidebar-menu">
             <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="road.html"><i class="fas fa-road"></i> Road</a></li>
-                <li><a href="bus.html"><i class="fas fa-bus"></i> Bus</a></li>
-                <li><a href="map.html"><i class="fas fa-map-marked-alt"></i> Map</a></li>
+                <li><a href="admin.php"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="road.php"><i class="fas fa-road"></i> Roads</a></li>
+                <li><a href="bus.php"><i class="fas fa-bus"></i> Buses</a></li>
+                <li><a href="map.php"><i class="fas fa-map-marked-alt"></i> Map</a></li>
                 <li><a href="database.php" class="active"><i class="fas fa-database"></i> Database</a></li>
             </ul>
         </div>
+        <a href="logout.php" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
     </div>
 
     <div class="main-content">
