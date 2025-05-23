@@ -510,8 +510,8 @@
         <header class="app-header">
             <div class="container header-content">
                 <div class="logo-container">
-                    <div class="logo-icon">
-                        <img src="img/logo_tiny.png" alt="Kosovo Transit Logo">
+                    <div class="logo-icon" style="background-color: #2563eb; border-radius: 10px;">
+                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo">
                     </div>
                     <h1 class="logo-text">Kosovo Transit</h1>
                 </div>
@@ -634,7 +634,7 @@
                         <i class="fas fa-bus"></i>
                         <span>Buses</span>
                     </a>
-                    <a href="bardh.html" class="footer-nav-item map-center active">
+                    <a href="index.html" class="footer-nav-item map-center active">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Map</span>
                     </a>

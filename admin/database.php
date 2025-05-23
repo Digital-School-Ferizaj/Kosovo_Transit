@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config.php';
 
 // Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -405,7 +405,7 @@ $stations = $pdo->query("SELECT * FROM bus_stations ORDER BY city, name")->fetch
         </div>
         <div class="sidebar-menu">
             <ul>
-                <li><a href="admin.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="road.html"><i class="fas fa-road"></i> Road</a></li>
                 <li><a href="bus.html"><i class="fas fa-bus"></i> Bus</a></li>
                 <li><a href="map.html"><i class="fas fa-map-marked-alt"></i> Map</a></li>

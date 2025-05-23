@@ -2,12 +2,6 @@
 session_start();
 require_once 'config.php';
 
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit();
-}
-
 // Dummy bus schedule data
 $cityBusLines = [
     [
@@ -904,8 +898,8 @@ $ticketOptions = [
         <header class="app-header">
             <div class="container header-content">
                 <div class="logo-container">
-                    <div class="logo-icon">
-                        <img src="img/logo_tiny.png" alt="Kosovo Transit Logo">
+                    <div class="logo-icon" style="background-color: #059669; border-radius: 10px;">
+                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo">
                     </div>
                     <h1 class="logo-text">Kosovo Transit</h1>
                 </div>
@@ -914,7 +908,15 @@ $ticketOptions = [
 
         <main class="main-content">
             <div class="container">
-                <div class="action-buttons">
+            <div class="search-card">
+                    <div class="search-input-container">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Where do you want to go?" class="search-input" id="destinationInput">
+                    </div>
+                    <button class="find-route-button">Find Bus Route</button>
+                </div>
+
+            <div class="action-buttons">
                     <a href="#" class="action-button" id="scheduleButton">
                         <i class="fas fa-calendar-alt"></i>
                         <span>Bus Schedules</span>
@@ -927,13 +929,7 @@ $ticketOptions = [
                     </a>
                 </div>
 
-                <div class="search-card">
-                    <div class="search-input-container">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="Where do you want to go?" class="search-input" id="destinationInput">
-                    </div>
-                    <button class="find-route-button">Find Bus Route</button>
-                </div>
+                
             <br>
                 <div class="welcome-section animate-in">
                     <h2 class="welcome-title">Bus Routes</h2>
@@ -1043,7 +1039,7 @@ $ticketOptions = [
                         <i class="fas fa-bus"></i>
                         <span>Buses</span>
                     </a>
-                    <a href="bardh.html" class="footer-nav-item map-center active">
+                    <a href="index.html" class="footer-nav-item map-center active">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Map</span>
                     </a>

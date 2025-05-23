@@ -17,10 +17,12 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
+/*
 // Fetch user preferences
 $stmt = $pdo->prepare("SELECT * FROM user_preferences WHERE user_id = ?");
 $stmt->execute([$user_id]);
 $preferences = $stmt->fetch();
+*/
 
 // Fetch user destinations
 $stmt = $pdo->prepare("SELECT * FROM user_destinations WHERE user_id = ? ORDER BY type = 'home' DESC, type = 'work' DESC, type = 'course' DESC");
@@ -539,8 +541,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <header class="app-header">
             <div class="container header-content">
                 <div class="logo-container">
-                    <div class="logo-icon">
-                        <img src="img/logo_tiny.png" alt="Kosovo Transit Logo">
+                    <div class="logo-icon" style="background-color: #2563eb; border-radius: 10px;">
+                        <img src="img/whitelogo.png" alt="Kosovo Transit Logo">
                     </div>
                     <h1 class="logo-text">Kosovo Transit</h1>
                 </div>
