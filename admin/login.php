@@ -3,7 +3,7 @@ require_once '../config.php';
 
 // If already logged in, redirect to admin page
 if (isLoggedIn()) {
-    header('Location: admin.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($username === ADMIN_USERNAME && $password === ADMIN_PASSWORD) {
         $_SESSION['admin_logged_in'] = true;
-        header('Location: admin.php');
+        header('Location: index.php');
         exit;
     } else {
         $error = 'Invalid username or password';

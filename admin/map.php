@@ -185,7 +185,7 @@ requireLogin();
     </div>
     <div class="sidebar-menu">
       <ul>
-        <li><a href="admin.php"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="road.php"><i class="fas fa-road"></i> Roads</a></li>
         <li><a href="bus.php"><i class="fas fa-bus"></i> Buses</a></li>
         <li><a href="map.php" class="active"><i class="fas fa-map-marked-alt"></i> Map</a></li>

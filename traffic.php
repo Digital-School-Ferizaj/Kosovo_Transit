@@ -316,31 +316,33 @@
         /* Search Input Styles */
         .search-card {
             margin-top: 1.5rem;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
         }
 
         .search-input-container {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            background: var(--surface);
-            padding: 1rem;
+            background: var(--background);
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            padding: 0.75rem 1rem;
             margin-bottom: 1rem;
         }
-
         .search-input-container i {
-            color: var(--text-light);
+            color: var(--primary-dark);
             font-size: 1.25rem;
         }
 
         .search-input {
             flex: 1;
             border: none;
-            outline: none;
+            background: none;
             font-size: 1rem;
             color: var(--text);
-            background: transparent;
+            outline: none;
         }
 
         .search-input::placeholder {
@@ -380,7 +382,7 @@
 
         .welcome-section {
             margin-bottom: 2rem;
-            padding: 0 3rem;
+            padding: 0 0rem;
             margin-top: 1rem;
         }
 
@@ -389,6 +391,7 @@
             font-weight: 600;
             margin-bottom: 1rem;
             padding: 0 2rem;
+            text-align:center;
         }
 
         .welcome-subtitle {

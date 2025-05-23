@@ -661,7 +661,7 @@ $ticketOptions = [
 
         .welcome-section {
             margin-bottom: 2rem;
-            padding: 0 3rem;
+            padding: 0 0rem;
             margin-top: 1rem;
         }
 
@@ -670,6 +670,7 @@ $ticketOptions = [
             font-weight: 600;
             margin-bottom: 1rem;
             padding: 0 2rem;
+            text-align:center;
         }
 
         .welcome-subtitle {
